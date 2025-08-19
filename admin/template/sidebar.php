@@ -34,6 +34,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
+                                <a href="?page=skill" class="nav-link">
+                                    <i class="fas fa-chart-pie nav-icon"></i>
+                                    <p>Skill</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="?page=background" class="nav-link">
                                     <i class="fas fa-image nav-icon"></i>
                                     <p>Background</p>
@@ -51,7 +57,6 @@
                                     <p>About</p>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
                     <li class="nav-item">
