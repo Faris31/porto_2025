@@ -25,7 +25,7 @@
                     data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -34,8 +34,14 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
+                                <a href="?page=blog" class="nav-link">
+                                    <i class="fas fa-folder-open nav-icon"></i>
+                                    <p>Blogs</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="?page=skill" class="nav-link">
-                                    <i class="fas fa-chart-pie nav-icon"></i>
+                                    <i class="fas fa-hockey-puck nav-icon"></i>
                                     <p>Skill</p>
                                 </a>
                             </li>
@@ -46,9 +52,15 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="?page=kategori" class="nav-link">
+                                    <i class="fas fa-database nav-icon"></i>
+                                    <p>Kategori</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="?page=user" class="nav-link">
-                                    <i class="fas fa-user nav-icon"></i>
-                                    <p>User</p>
+                                    <i class="fas fa-users nav-icon"></i>
+                                    <p>Users</p>
                                 </a>
                             </li>
                             <li class="nav-item">

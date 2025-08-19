@@ -1,9 +1,6 @@
 <?php
-$querySkillSoft = mysqli_query($koneksi, "SELECT * FROM skill_soft ORDER BY id DESC");
-$rowsSkillSoft = mysqli_fetch_all($querySkillSoft, MYSQLI_ASSOC);
-
-// $querySkillaHard = mysqli_query($koneksi, "SELECT * FROM skill_soft ORDER BY id DESC");
-// $rowsSkillHard = mysqli_fetch_all($querySkillaHard, MYSQLI_ASSOC);
+$queryCategories = mysqli_query($koneksi, "SELECT * FROM categories ORDER BY id DESC");
+$rowsCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
 ?>
 
 <!-- <div class="pagetitle">
@@ -17,34 +14,34 @@ $rowsSkillSoft = mysqli_fetch_all($querySkillSoft, MYSQLI_ASSOC);
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data Skills</h5>
+                        <h5 class="card-title">Data Kategori</h5>
                         <div class="mb-3" align="right">
-                            <a href="?page=tambah_skill" class="btn btn-primary">
-                                Tambah Skill
+                            <a href="?page=tambah_kategori" class="btn btn-primary">
+                                Tambah Kategori
                             </a>
                         </div>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Skill</th>
-                                    <th class="text-center">Kemampuan</th>
+                                    <th class="text-center">Jenis Kategori</th>
+                                    <th class="text-center">Type Kategori</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($rowsSkillSoft as $key => $row) : ?>
+                                <?php foreach ($rowsCategories as $key => $row) : ?>
                                 <tr>
                                     <td class="text-center"><?= $key += 1 ?></td>
-                                    <td class="text-center"><?= $row['title'] ?></td>
-                                    <td class="text-center"><?= $row['persentase'] ?>%</td>
+                                    <td class="text-center"><?= $row['name'] ?></td>
+                                    <td class="text-center"><?= $row['type'] ?></td>
                                     <td class="text-center">
-                                        <a href="?page=tambah_skill&edit=<?= $row['id'] ?>"
+                                        <a href="?page=tambah_kategori&edit=<?= $row['id'] ?>"
                                             class="btn btn-sm btn-success">
                                             Edit
                                         </a>
                                         <a onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" ;
-                                            href="?page=tambah_skill&delete=<?= $row['id'] ?>"
+                                            href="?page=tambah_kategori&delete=<?= $row['id'] ?>"
                                             class="btn btn-sm btn-danger">
                                             Delete
                                         </a>
