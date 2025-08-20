@@ -59,7 +59,6 @@ if (isset($_POST['simpan'])) {
                 if (!empty($row['image'])) {
                     unlink($path . $row['image']);
                 }
-                
             }
         } else {
             echo "Ekstensi file tidak ditemukan!";
@@ -118,15 +117,15 @@ $rowsCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
                                 <select name="id_kategori" id="" class="form-control" required>
                                     <option value="">Pilih Kategori</option>
                                     <?php foreach ($rowsCategories as $key => $val) : ?>
-                                    <option value="<?= $val['id'] ?>"
-                                        <?= ($id && $rowEdit['id_kategori'] == $val['id']) ? 'selected' : '' ?>>
-                                        <?= $val['name'] ?></option>
+                                        <option value="<?= $val['id'] ?>"
+                                            <?= ($id && $rowEdit['id_kategori'] == $val['id']) ? 'selected' : '' ?>>
+                                            <?= $val['name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Mini Content</label>
-                                <textarea name="mini_content" id="summernote"
+                                <textarea name="mini_content" id=""
                                     class="form-control"><?= ($id) ? $rowEdit['mini_content'] : ''; ?></textarea>
                             </div>
                             <div class="mb-3">
