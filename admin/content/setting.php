@@ -6,6 +6,8 @@
 $querySetting = mysqli_query($koneksi, "SELECT * FROM settings LIMIT 1");
 $row = mysqli_fetch_assoc($querySetting);
 
+
+
 if (isset($_POST['simpan'])) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -53,97 +55,117 @@ if (isset($_POST['simpan'])) {
 
 ?>
 
+
 <section class="section">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <!-- <h5 class="card-title">Pengaturan</h5> -->
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-2">
-                                    <label for="email" class="form-label fw-bold">Email</label>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Pengaturan</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="?page=setting">Pengaturan</a></li>
+                                <li class="breadcrumb-item active">Dashboard v2</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Pengaturan</h5> -->
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
+                                        <label for="email" class="form-label fw-bold">Email</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="email" name="email" class="form-control"
+                                            value="<?= isset($row['email']) ? $row['email'] : '' ?>">
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="email" name="email" class="form-control"
-                                        value="<?= isset($row['email']) ? $row['email'] : '' ?>">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
+                                        <label for="phone" class="form-label fw-bold">No. Telp</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="number" name="phone" class="form-control"
+                                            value="<?= isset($row['phone']) ? $row['phone'] : '' ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-2">
-                                    <label for="phone" class="form-label fw-bold">No. Telp</label>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="number" name="phone" class="form-control"
-                                        value="<?= isset($row['phone']) ? $row['phone'] : '' ?>">
-                                </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-2">
-                                    <label for="address" class="form-label fw-bold">Alamat</label>
-                                </div>
-                                <div class="col-sm-6">
-                                    <textarea name="address" id="" class="form-control"><?= isset($row['address']) ? $row['address'] : '' ?>
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
+                                        <label for="address" class="form-label fw-bold">Alamat</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <textarea name="address" id="" class="form-control"><?= isset($row['address']) ? $row['address'] : '' ?>
                                     </textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-2">
-                                    <label for="facebook" class="form-label fw-bold">Facebook</label>
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
+                                        <label for="facebook" class="form-label fw-bold">Facebook</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="url" name="facebook" class="form-control"
+                                            value="<?= isset($row['facebook']) ? $row['facebook'] : '' ?>">
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="url" name="facebook" class="form-control"
-                                        value="<?= isset($row['facebook']) ? $row['facebook'] : '' ?>">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
+                                        <label for="twitter" class="form-label fw-bold">Twitter</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="url" name="twitter" class="form-control"
+                                            value="<?= isset($row['twitter']) ? $row['twitter'] : '' ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-2">
-                                    <label for="twitter" class="form-label fw-bold">Twitter</label>
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
+                                        <label for="linkedin" class="form-label fw-bold">Linkedin</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="url" name="linkedin" class="form-control"
+                                            value="<?= isset($row['linkedin']) ? $row['linkedin'] : '' ?>">
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="url" name="twitter" class="form-control"
-                                        value="<?= isset($row['twitter']) ? $row['twitter'] : '' ?>">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
+                                        <label for="instagram" class="form-label fw-bold">Instagram</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="url" name="instagram" class="form-control"
+                                            value="<?= isset($row['instagram']) ? $row['instagram'] : '' ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-2">
-                                    <label for="linkedin" class="form-label fw-bold">Linkedin</label>
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
+                                        <label for="logo" class="form-label fw-bold">Logo</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="file" name="logo" class="form-control">
+                                        <img class="mt-2 rounded"
+                                            src="uploads/<?= isset($row['logo']) ? $row['logo'] : ''; ?>" alt=""
+                                            width="100">
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="url" name="linkedin" class="form-control"
-                                        value="<?= isset($row['linkedin']) ? $row['linkedin'] : '' ?>">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-2">
-                                    <label for="instagram" class="form-label fw-bold">Instagram</label>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="url" name="instagram" class="form-control"
-                                        value="<?= isset($row['instagram']) ? $row['instagram'] : '' ?>">
-                                </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-2">
-                                    <label for="logo" class="form-label fw-bold">Logo</label>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="file" name="logo" class="form-control">
-                                    <img class="mt-2 rounded"
-                                        src="uploads/<?= isset($row['logo']) ? $row['logo'] : ''; ?>" alt=""
-                                        width="100">
-                                </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </section>

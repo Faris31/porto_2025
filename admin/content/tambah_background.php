@@ -84,51 +84,72 @@ if (isset($_POST['simpan'])) {
 <!-- Main content -->
 <section class="section">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <!-- <h5 class="card-title"></h5> -->
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <div class="mb-2">
-                                <label for="">Gambar</label>
-                                <input type="file" name="image" class="form-control" required
-                                    value=" <?= ($id) ? $rowEdit['images'] : ''; ?>">
-                                <small>* image must be landscape or 1920 x 1080</small> <br>
-                                <img class="mt-2 rounded-2"
-                                    src="uploads/<?= (isset($rowEdit['images'])) ? $rowEdit['images'] : '' ?>" alt=""
-                                    width="20%">
-                            </div>
-                            <div class="mb-3">
-                                <label for="">Title</label>
-                                <input type="text" name="title" class="form-control" placeholder="Masukan title"
-                                    required value="<?= ($id) ? $rowEdit['title'] : ''; ?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="">Deskripsi</label>
-                                <input type="text" name="description" class="form-control"
-                                    placeholder="Masukan deskripsi" required
-                                    value="<?= ($id) ? $rowEdit['description'] : ''; ?>">
-                            </div>
-                            <div class=" mb-3">
-                                <label for="">Status</label>
-                                <select name="is_active" id="" class="form-control">
-                                    <option value="">Silahkan Dipilih</option>
-                                    <option value="0" <?= ($id) ? $rowEdit['is_active'] == 0 ? 'selected' : '' : '' ?>>
-                                        Draft
-                                    </option>
-                                    <option value="1" <?= ($id) ? $rowEdit['is_active'] == 1 ? 'selected' : '' : '' ?>>
-                                        Publish</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
-                                <a href="?page=background" class="text-muted ms-2">Kembali</a>
-                            </div>
-                        </form>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0"><?= $title ?></h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="?page=background"><?= $title ?></a></li>
+                                <li class="breadcrumb-item active">Dashboard v2</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- <h5 class="card-title"></h5> -->
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <div class="mb-2">
+                                    <label for="">Gambar</label>
+                                    <input type="file" name="image" class="form-control" required
+                                        value=" <?= ($id) ? $rowEdit['images'] : ''; ?>">
+                                    <small>* image must be landscape or 1920 x 1080</small> <br>
+                                    <img class="mt-2 rounded-2"
+                                        src="uploads/<?= (isset($rowEdit['images'])) ? $rowEdit['images'] : '' ?>"
+                                        alt="" width="20%">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Title</label>
+                                    <input type="text" name="title" class="form-control" placeholder="Masukan title"
+                                        required value="<?= ($id) ? $rowEdit['title'] : ''; ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Deskripsi</label>
+                                    <input type="text" name="description" class="form-control"
+                                        placeholder="Masukan deskripsi" required
+                                        value="<?= ($id) ? $rowEdit['description'] : ''; ?>">
+                                </div>
+                                <div class=" mb-3">
+                                    <label for="">Status</label>
+                                    <select name="is_active" id="" class="form-control">
+                                        <option value="">Silahkan Dipilih</option>
+                                        <option value="0"
+                                            <?= ($id) ? $rowEdit['is_active'] == 0 ? 'selected' : '' : '' ?>>
+                                            Draft
+                                        </option>
+                                        <option value="1"
+                                            <?= ($id) ? $rowEdit['is_active'] == 1 ? 'selected' : '' : '' ?>>
+                                            Publish</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                                    <a href="?page=background" class="text-muted ms-2">Kembali</a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>

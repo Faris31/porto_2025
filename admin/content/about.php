@@ -63,100 +63,118 @@ if (isset($_POST['simpan'])) {
 
 <section class="section">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <!-- <h5 class="card-title">Pengaturan</h5> -->
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-6">
-                                    <label for="logo" class="form-label fw-bold">Foto</label>
-                                    <input type="file" name="logo" class="form-control">
-                                    <img class="mt-3 rounded"
-                                        src="uploads/<?= isset($row['images']) ? $row['images'] : ''; ?>" alt=""
-                                        width="500">
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">About</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="?page=user">About</a></li>
+                                <li class="breadcrumb-item active">Dashboard v2</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Pengaturan</h5> -->
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-6">
+                                        <label for="logo" class="form-label fw-bold">Foto</label>
+                                        <input type="file" name="logo" class="form-control">
+                                        <img class="mt-3 rounded"
+                                            src="uploads/<?= isset($row['images']) ? $row['images'] : ''; ?>" alt=""
+                                            width="500">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-6">
-                                    <label for="title" class="form-label fw-bold">Title</label>
-                                    <input type="text" name="title" class="form-control"
-                                        value="<?= isset($row['title']) ? $row['title'] : '' ?>">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-6">
+                                        <label for="title" class="form-label fw-bold">Title</label>
+                                        <input type="text" name="title" class="form-control"
+                                            value="<?= isset($row['title']) ? $row['title'] : '' ?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
+                                        <textarea name="description" id=""
+                                            class="form-control"><?= isset($row['description']) ? $row['description'] : '' ?></textarea>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
-                                    <textarea name="description" id=""
-                                        class="form-control"><?= isset($row['description']) ? $row['description'] : '' ?></textarea>
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-6">
+                                        <label for="name" class="form-label fw-bold">Nama</label>
+                                        <input type="text" name="name" class="form-control"
+                                            value="<?= isset($row['name']) ? $row['name'] : '' ?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="birthday" class="form-label fw-bold">Birthday</label>
+                                        <input type="date" name="birthday" class="form-control"
+                                            value="<?= isset($row['birthday']) ? $row['birthday'] : '' ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-6">
-                                    <label for="name" class="form-label fw-bold">Nama</label>
-                                    <input type="text" name="name" class="form-control"
-                                        value="<?= isset($row['name']) ? $row['name'] : '' ?>">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-6">
+                                        <label for="address" class="form-label fw-bold">Alamat</label>
+                                        <textarea name="address" id="" class="form-control"><?= isset($row['address']) ? $row['address'] : '' ?>
+                                        </textarea>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="zip_code" class="form-label fw-bold">Kode Pos</label>
+                                        <input type="number" name="zip_code" class="form-control"
+                                            value="<?= isset($row['zip_code']) ? $row['zip_code'] : '' ?>">
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="birthday" class="form-label fw-bold">Birthday</label>
-                                    <input type="date" name="birthday" class="form-control"
-                                        value="<?= isset($row['birthday']) ? $row['birthday'] : '' ?>">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-6">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control"
+                                            value="<?= isset($row['email']) ? $row['email'] : '' ?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="phone" class="form-label fw-bold">No. Telp</label>
+                                        <input type="number" name="phone" class="form-control"
+                                            value="<?= isset($row['phone']) ? $row['phone'] : '' ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-6">
-                                    <label for="address" class="form-label fw-bold">Alamat</label>
-                                    <textarea name="address" id="" class="form-control"><?= isset($row['address']) ? $row['address'] : '' ?>
-                                    </textarea>
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-6">
+                                        <label for="hobi_1" class="form-label fw-bold">Hobi 1</label>
+                                        <input type="text" name="hobi_1" class="form-control"
+                                            value="<?= isset($row['hobi_1']) ? $row['hobi_1'] : '' ?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="hobi_2" class="form-label fw-bold">Hobi 2</label>
+                                        <input type="text" name="hobi_2" class="form-control"
+                                            value="<?= isset($row['hobi_2']) ? $row['hobi_2'] : '' ?>">
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="zip_code" class="form-label fw-bold">Kode Pos</label>
-                                    <input type="number" name="zip_code" class="form-control"
-                                        value="<?= isset($row['zip_code']) ? $row['zip_code'] : '' ?>">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-6">
+                                        <label for="hobi_3" class="form-label fw-bold">Hobi 3</label>
+                                        <input type="text" name="hobi_3" class="form-control"
+                                            value="<?= isset($row['hobi_3']) ? $row['hobi_3'] : '' ?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="hobi_4" class="form-label fw-bold">Hobi 4</label>
+                                        <input type="text" name="hobi_4" class="form-control"
+                                            value="<?= isset($row['hobi_4']) ? $row['hobi_4'] : '' ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-6">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" name="email" class="form-control"
-                                        value="<?= isset($row['email']) ? $row['email'] : '' ?>">
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
+                                        <a href="?page=about" class="text-muted ms-2">Kembali</a>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="phone" class="form-label fw-bold">No. Telp</label>
-                                    <input type="number" name="phone" class="form-control"
-                                        value="<?= isset($row['phone']) ? $row['phone'] : '' ?>">
-                                </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-6">
-                                    <label for="hobi_1" class="form-label fw-bold">Hobi 1</label>
-                                    <input type="text" name="hobi_1" class="form-control"
-                                        value="<?= isset($row['hobi_1']) ? $row['hobi_1'] : '' ?>">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="hobi_2" class="form-label fw-bold">Hobi 2</label>
-                                    <input type="text" name="hobi_2" class="form-control"
-                                        value="<?= isset($row['hobi_2']) ? $row['hobi_2'] : '' ?>">
-                                </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-6">
-                                    <label for="hobi_3" class="form-label fw-bold">Hobi 3</label>
-                                    <input type="text" name="hobi_3" class="form-control"
-                                        value="<?= isset($row['hobi_3']) ? $row['hobi_3'] : '' ?>">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="hobi_4" class="form-label fw-bold">Hobi 4</label>
-                                    <input type="text" name="hobi_4" class="form-control"
-                                        value="<?= isset($row['hobi_4']) ? $row['hobi_4'] : '' ?>">
-                                </div>
-                            </div>
-                            <div class="mt-2 mb-3 row">
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
-                                    <a href="?page=about" class="text-muted ms-2">Kembali</a>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -91,84 +91,101 @@ $rowsCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
 // penulis di ambil dari 
 ?>
 
-<div class="pagetitle">
-    <!-- <h1><?= $title ?></h1> -->
-</div><!-- End Page Title -->
-
 <section class="section">
     <div class="container-fluid">
-        <form action="" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Gambar</label>
-                                <input type="file" name="image" class="form-control"
-                                    value=" <?= ($id) ? $rowEdit['images'] : ''; ?>">
-                                <small>)* image must be landscape or 1920 x 1080</small> <br>
-                                <img class="mt-2 rounded"
-                                    src="uploads/<?= (isset($rowEdit['images'])) ? $rowEdit['images'] : '' ?>" alt=""
-                                    width="200">
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Kategori</label>
-                                <select name="id_kategori" id="" class="form-control" required>
-                                    <option value="">Pilih Kategori</option>
-                                    <?php foreach ($rowsCategories as $key => $val) : ?>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0"><?= $title ?></h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="?page=blog"><?= $title ?></a></li>
+                                <li class="breadcrumb-item active">Dashboard v2</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Gambar</label>
+                                    <input type="file" name="image" class="form-control"
+                                        value=" <?= ($id) ? $rowEdit['images'] : ''; ?>">
+                                    <small>)* image must be landscape or 1920 x 1080</small> <br>
+                                    <img class="mt-2 rounded"
+                                        src="uploads/<?= (isset($rowEdit['images'])) ? $rowEdit['images'] : '' ?>"
+                                        alt="" width="200">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Kategori</label>
+                                    <select name="id_kategori" id="" class="form-control" required>
+                                        <option value="">Pilih Kategori</option>
+                                        <?php foreach ($rowsCategories as $key => $val) : ?>
                                         <option value="<?= $val['id'] ?>"
                                             <?= ($id && $rowEdit['id_kategori'] == $val['id']) ? 'selected' : '' ?>>
                                             <?= $val['name'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Mini Content</label>
+                                    <textarea name="mini_content" id=""
+                                        class="form-control"><?= ($id) ? $rowEdit['mini_content'] : ''; ?></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Content</label>
+                                    <textarea name="content" id="summernote"
+                                        class="form-control"><?= ($id) ? $rowEdit['content'] : ''; ?></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Title</label>
+                                    <input type="text" name="title" class="form-control" placeholder="Masukan title"
+                                        required value="<?= ($id) ? $rowEdit['title'] : ''; ?>">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Mini Content</label>
-                                <textarea name="mini_content" id=""
-                                    class="form-control"><?= ($id) ? $rowEdit['mini_content'] : ''; ?></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Content</label>
-                                <textarea name="content" id="summernote"
-                                    class="form-control"><?= ($id) ? $rowEdit['content'] : ''; ?></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Title</label>
-                                <input type="text" name="title" class="form-control" placeholder="Masukan title"
-                                    required value="<?= ($id) ? $rowEdit['title'] : ''; ?>">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Tags</label>
+                                    <input type="text" id='tags' name="tags" class="form-control"
+                                        value='<?= ($id) ? htmlspecialchars($rowEdit["tags"], ENT_QUOTES, "UTF-8") : "" ?>'>
+                                </div>
+                                <div class=" mb-3">
+                                    <label for="">Status</label>
+                                    <select name="is_active" id="" class="form-control">
+                                        <option value="">Silahkan Dipilih</option>
+                                        <option value="0"
+                                            <?= ($id) ? $rowEdit['is_active'] == 0 ? 'selected' : '' : '' ?>>
+                                            Draft
+                                        </option>
+                                        <option value="1"
+                                            <?= ($id) ? $rowEdit['is_active'] == 1 ? 'selected' : '' : '' ?>>
+                                            Publish</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                                    <a href="?page=blog" class="text-muted ms-2">Kembali</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Tags</label>
-                                <input type="text" id='tags' name="tags" class="form-control"
-                                    value='<?= ($id) ? htmlspecialchars($rowEdit["tags"], ENT_QUOTES, "UTF-8") : "" ?>'>
-                            </div>
-                            <div class=" mb-3">
-                                <label for="">Status</label>
-                                <select name="is_active" id="" class="form-control">
-                                    <option value="">Silahkan Dipilih</option>
-                                    <option value="0" <?= ($id) ? $rowEdit['is_active'] == 0 ? 'selected' : '' : '' ?>>
-                                        Draft
-                                    </option>
-                                    <option value="1" <?= ($id) ? $rowEdit['is_active'] == 1 ? 'selected' : '' : '' ?>>
-                                        Publish</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
-                                <a href="?page=blog" class="text-muted ms-2">Kembali</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+            </form>
+
+        </div>
     </div>
 </section>
