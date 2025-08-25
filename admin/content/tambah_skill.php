@@ -94,39 +94,7 @@ if (isset($_POST['simpan'])) {
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <form action="" method="post">
-                                <h1>Soft Skil</h1>
-                                <div class="mb-3">
-                                    <label for="">Jenis Skill</label>
-                                    <input type="text" name="jenis_skill" class="form-control"
-                                        placeholder="Masukan nama anda" required
-                                        value="<?= ($id) ? $rowEdit['name'] : ''; ?>">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Email</label>
-                                    <input type="email" name="email" class="form-control" placeholder="Masukan email anda"
-                                        required value="<?= ($id) ? $rowEdit['email'] : ''; ?>">
-                                </div>
-                                <div class=" mb-3">
-                                    <label for="">Password</label>
-                                    <input type="password" name="password" class="form-control"
-                                        placeholder="Masukan password anda" <?= (!$id) ? 'required' : ''; ?>>
-                                    <small class="text-danger">* isi password jika ingin merubahnya</small>
-                                </div>
-                                <div class="mb-3">
-                                    <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
-                                    <a href="?page=skill" class="text-muted ms-2">Kembali</a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> -->
             </div>
-
         </div>
     </div>
 </section>

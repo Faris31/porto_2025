@@ -30,6 +30,7 @@ $rowsSkillSoft = mysqli_fetch_all($querySkillSoft, MYSQLI_ASSOC);
                     <div class="card">
                         <div class="card-body">
                             <div class="mb-3" align="right">
+                                <h5 class="card-title">Data Skill</h5>
                                 <a href="?page=tambah_skill" class="btn btn-primary">
                                     Tambah Skill
                                 </a>

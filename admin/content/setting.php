@@ -16,6 +16,7 @@ if (isset($_POST['simpan'])) {
     $twitter = $_POST['twitter'];
     $linkedin = $_POST['linkedin'];
     $instagram = $_POST['instagram'];
+    $github = $_POST['github'];
     $logo_nama = $row['logo'];
 
     if (!empty($_FILES['logo']['name'])) { // jika folder tidak kosong
@@ -37,14 +38,14 @@ if (isset($_POST['simpan'])) {
         // update
         $id_settings = $row['id'];
         $update = mysqli_query($koneksi, "UPDATE settings SET email = '$email', phone = '$phone', address = '$address', facebook = '$facebook', 
-        twitter = '$twitter', linkedin = '$linkedin', instagram = '$instagram', logo = '$logo_nama'  WHERE id='$id_settings'");
+        twitter = '$twitter', linkedin = '$linkedin', instagram = '$instagram', github='$github', logo = '$logo_nama'  WHERE id='$id_settings'");
         if ($update) {
             header("location:?page=setting&ubah=berhasil");
         }
     } else {
         // insert
-        $insert = mysqli_query($koneksi, "INSERT INTO settings (email, phone, address, facebook, twitter, linkedin, instagram, logo)
-        VALUES ('$email', '$phone', '$address', '$facebook', '$twitter', '$linkedin', '$instagram', '$logo_nama') ");
+        $insert = mysqli_query($koneksi, "INSERT INTO settings (email, phone, address, facebook, twitter, linkedin, instagram, github, logo)
+        VALUES ('$email', '$phone', '$address', '$facebook', '$twitter', '$linkedin', '$instagram','$github', '$logo_nama') ");
         if ($insert) {
             header("location:?page=setting&tambah=berhasil");
         }
@@ -148,6 +149,15 @@ if (isset($_POST['simpan'])) {
                                 </div>
                                 <div class="mt-2 mb-3 row">
                                     <div class="col-sm-2">
+                                        <label for="instagram" class="form-label fw-bold">Git Hub</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="url" name="github" class="form-control"
+                                            value="<?= isset($row['github']) ? $row['github'] : '' ?>">
+                                    </div>
+                                </div>
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
                                         <label for="logo" class="form-label fw-bold">Logo</label>
                                     </div>
                                     <div class="col-sm-6">
@@ -155,6 +165,18 @@ if (isset($_POST['simpan'])) {
                                         <img class="mt-2 rounded"
                                             src="uploads/<?= isset($row['logo']) ? $row['logo'] : ''; ?>" alt=""
                                             width="100">
+                                    </div>
+                                </div>
+                                <div class="mt-2 mb-3 row">
+                                    <div class="col-sm-2">
+                                        <label for="file" class="form-label fw-bold">File</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="file" name="file" class="form-control mb-3">
+                                        <?php if(!empty($row['cv'])) : ?>
+                                        <a href="uploads/<?= htmlspecialchars($row['cv']) ?>" target="_blank"
+                                            class="btn btn-md btn-outline-dark">Lihat CV</a>
+                                        <?php endif;?>
                                     </div>
                                 </div>
                                 <div class="mt-2 mb-3 row">

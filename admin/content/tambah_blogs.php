@@ -7,9 +7,9 @@ if (isset($_GET['edit'])) {
     $query = mysqli_query($koneksi, "SELECT * FROM blogs WHERE id = '$id'");
     $rowEdit = mysqli_fetch_assoc($query);
 
-    $title = "Edit Blog Kami";
+    $title = "Edit Blog";
 } else {
-    $title = "Tambah Blog Kami";
+    $title = "Tambah Blog";
 }
 
 // perintah delete
@@ -112,7 +112,7 @@ $rowsCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
             </div>
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
@@ -137,27 +137,20 @@ $rowsCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="" class="form-label">Mini Content</label>
-                                    <textarea name="mini_content" id=""
-                                        class="form-control"><?= ($id) ? $rowEdit['mini_content'] : ''; ?></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label">Content</label>
-                                    <textarea name="content" id="summernote"
-                                        class="form-control"><?= ($id) ? $rowEdit['content'] : ''; ?></textarea>
-                                </div>
-                                <div class="mb-3">
                                     <label for="" class="form-label">Title</label>
                                     <input type="text" name="title" class="form-control" placeholder="Masukan title"
                                         required value="<?= ($id) ? $rowEdit['title'] : ''; ?>">
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"></h5>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Mini Content</label>
+                                    <textarea name="mini_content"
+                                        class="form-control summernote"><?= ($id) ? $rowEdit['mini_content'] : ''; ?></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Content</label>
+                                    <textarea name="content"
+                                        class="form-control summernote"><?= ($id) ? $rowEdit['content'] : ''; ?></textarea>
+                                </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Tags</label>
                                     <input type="text" id='tags' name="tags" class="form-control"
@@ -185,7 +178,6 @@ $rowsCategories = mysqli_fetch_all($queryCategories, MYSQLI_ASSOC);
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </section>

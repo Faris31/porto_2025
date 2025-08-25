@@ -56,9 +56,7 @@ function changeIsActive($isActive)
                                         <th>Gambar</th>
                                         <th>Kategories</th>
                                         <th>Judul</th>
-                                        <th>Content</th>
                                         <th>Mini Content</th>
-                                        <th>Penulis</th>
                                         <th>Status</th>
                                         <th>Tags</th>
                                         <th>Aksi</th>
@@ -68,18 +66,15 @@ function changeIsActive($isActive)
                                     <?php foreach ($rows as $key => $row) : ?>
                                     <tr>
                                         <td class="text-center align-content-center"><?= $key += 1 ?></td>
-                                        <td class="text-center"><img width="100" src="uploads/<?= $row['images'] ?>"
-                                                alt="">
-                                        </td>
+                                        <td class="text-center align-content-center"><img width="100"
+                                                src="uploads/<?= $row['images'] ?>" alt=""></td>
                                         <td class="text-center align-content-center"><?= $row['id_kategori'] ?></td>
                                         <td class="text-center align-content-center"><?= $row['title'] ?></td>
-                                        <td class="text-center align-content-center"><?= $row['content'] ?></td>
                                         <td class="text-center align-content-center"><?= $row['mini_content'] ?></td>
-                                        <td class="text-center align-content-center"><?= $row['penulis'] ?></td>
                                         <td class="text-center align-content-center">
                                             <?= $row['is_active'] ? 'Publish' : 'Draft'; ?></td>
                                         <td class="text-center align-content-center"><?= $row['tags'] ?></td>
-                                        <td class="align-content-center text-center">
+                                        <td class="align-text-center text-center">
                                             <a href="?page=tambah_blogs&edit=<?= $row['id'] ?>"
                                                 class="btn btn-sm btn-success">
                                                 Edit

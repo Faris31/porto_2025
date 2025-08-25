@@ -16,6 +16,12 @@ if(empty($_SESSION['ID_USER'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Porto</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+
+    <!-- tagify -->
+    <link rel="stylesheet" href="assets/tagify/tagify.css">
+    <script src="assets/js/tags/dist/inputTags.min.css"></script>
+
     <?php include 'template/css.php'?>
 </head>
 
@@ -52,9 +58,15 @@ if(empty($_SESSION['ID_USER'])){
     <?php include 'template/js.php' ?>
 
     <!-- summernote -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+
     <script>
-    $('#summernote').summernote({
-        placeholder: 'Silahkan Masukan Konten',
+    $(' .summernote').summernote({
+        placeholder: 'Hello stand alone ui',
         tabsize: 2,
         height: 120,
         toolbar: [
@@ -71,7 +83,7 @@ if(empty($_SESSION['ID_USER'])){
     <!-- end summernote -->
 
     <!-- tags -->
-    <script src="assets/js/tagify/tagify.js"></script>
+    <script src="assets/tagify/tagify.js"></script>
     <script>
     let input = document.querySelector('#tags');
     new Tagify(input)

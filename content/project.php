@@ -9,86 +9,18 @@
             </div>
         </div>
         <div class="row">
+            <?php foreach($rowProject as $key => $val):?>
             <div class="col-md-3">
                 <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center"
-                    style="background-image: url(assets/images/work-1.jpg);">
+                    style="background-image: url(admin/uploads/<?= $val['images'] ?>); object-fit: cover;">
                     <div class="overlay"></div>
                     <div class="text text-center p-4">
-                        <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                        <span>Web Design</span>
+                        <h3><a href="<?= $val['link'] ?>"><?= $val['title'] ?></a></h3>
+                        <span><?= $val['description'] ?></span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center"
-                    style="background-image: url(assets/images/work-2.jpg);">
-                    <div class="overlay"></div>
-                    <div class="text text-center p-4">
-                        <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                        <span>Web Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center"
-                    style="background-image: url(assets/images/work-3.jpg);">
-                    <div class="overlay"></div>
-                    <div class="text text-center p-4">
-                        <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                        <span>Web Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center"
-                    style="background-image: url(assets/images/work-4.jpg);">
-                    <div class="overlay"></div>
-                    <div class="text text-center p-4">
-                        <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                        <span>Web Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center"
-                    style="background-image: url(assets/images/work-5.jpg);">
-                    <div class="overlay"></div>
-                    <div class="text text-center p-4">
-                        <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                        <span>Web Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center"
-                    style="background-image: url(assets/images/work-6.jpg);">
-                    <div class="overlay"></div>
-                    <div class="text text-center p-4">
-                        <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                        <span>Web Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center"
-                    style="background-image: url(assets/images/work-7.jpg);">
-                    <div class="overlay"></div>
-                    <div class="text text-center p-4">
-                        <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                        <span>Web Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center"
-                    style="background-image: url(assets/images/work-8.jpg);">
-                    <div class="overlay"></div>
-                    <div class="text text-center p-4">
-                        <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                        <span>Web Design</span>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach;?>
         </div>
     </div>
 </section>

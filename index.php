@@ -1,5 +1,38 @@
 <?php 
-include 'admin/koneksi.php'
+include 'admin/koneksi.php';
+
+// querySetting
+$querySetting = mysqli_query($koneksi, "SELECT * FROM settings LIMIT 1");
+$rowSetting = mysqli_fetch_assoc($querySetting);
+
+// queryBackground
+$queryBackground = mysqli_query($koneksi, "SELECT * FROM background ORDER BY id DESC");
+$rowBackground = mysqli_fetch_all($queryBackground, MYSQLI_ASSOC);
+
+// queryAbout
+$queryAbout = mysqli_query($koneksi, "SELECT * FROM about LIMIT 1");
+$rowAbout = mysqli_fetch_assoc($queryAbout);
+
+// queryProject
+$queryProject = mysqli_query($koneksi, "SELECT * FROM project ORDER BY id DESC");
+$rowProject = mysqli_fetch_all($queryProject, MYSQLI_ASSOC);
+
+// queryBlog 
+$queryBlog = mysqli_query($koneksi, "SELECT * FROM blogs ORDER BY id DESC");
+$rowBlog = mysqli_fetch_all($queryBlog, MYSQLI_ASSOC);
+
+// queryEducarion
+$queryEdu = mysqli_query($koneksi, "SELECT * FROM education ORDER BY id DESC");
+$rowEdu = mysqli_fetch_all($queryEdu, MYSQLI_ASSOC);
+
+// queryexperience
+$queryExp = mysqli_query($koneksi, "SELECT * FROM experience ORDER BY id DESC");
+$rowExp = mysqli_fetch_all($queryExp, MYSQLI_ASSOC);
+
+//querySkill
+$querySkill = mysqli_query($koneksi, "SELECT * FROM skill_soft ORDER BY id DESC");
+$rowSkill = mysqli_fetch_all($querySkill, MYSQLI_ASSOC);
+ 
 ?>
 
 <!DOCTYPE html>

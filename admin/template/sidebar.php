@@ -34,6 +34,18 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
+                                <a href="?page=resume" class="nav-link">
+                                    <i class="fas fa-folder-open nav-icon"></i>
+                                    <p>Resume</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?page=project" class="nav-link">
+                                    <i class="fas fa-folder-open nav-icon"></i>
+                                    <p>Project</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="?page=blog" class="nav-link">
                                     <i class="fas fa-folder-open nav-icon"></i>
                                     <p>Blogs</p>
@@ -75,6 +87,12 @@
                         <a href="?page=setting" class="nav-link">
                             <i class="fas fa-cog nav-icon"></i>
                             <p>Settings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="?page=pesan_pengguna" class="nav-link">
+                            <i class="fas fa-cog nav-icon"></i>
+                            <p>Pesan Pengguna</p>
                         </a>
                     </li>
                 </ul>
